@@ -2,6 +2,12 @@
 
 A WordPress plugin for moving your WordPress blog content to your concrete5 site. You can export a file of your blog's content in order to import it into your concrete5 site. The export file will be an XML file format called concrete5 CIF (content import format). You can also download files of your blog in order to import these into your concrete5 site.
 
+## Requires
+
+* PHP 5.3+
+* concrete5 5.7.3+
+* WordPress 4.0+ (not yet tested)
+
 ## Build
 
 ### 1. Clone this repository.

@@ -229,10 +229,11 @@ class WP_C5_Exporter {
 				// If the image file is a attachment, move the file to the export directory
 				$attachment_id = self::get_attachment_id_from_url( $src );
 				if ($attachment_id) {
-					$src = $this->move_file_to_export_dir( $src );
+					$filename = $this->move_file_to_export_dir( $src );
+					if ($filename) {
+						$img->outertext = '<concrete-picture fID="' . $filename . '" alt="' . $alt . '" style="' . $style . '" />';
+					}
 				}
-				
-				$img->outertext = '<concrete-picture fID="' . $src . '" alt="' . $alt . '" style="' . $style . '" />';
 			}
 			
 			foreach( $r->find('a') as $anchor ) {
@@ -243,7 +244,10 @@ class WP_C5_Exporter {
 				if ($attachment_id) {
 					$file = get_attached_file( $attachment_id );
 					if ( $file ) {
-						$anchor->href = $this->move_file_to_export_dir( $file );
+						$filename = $this->move_file_to_export_dir( $file );
+						if ($filename) {
+							$anchor->href = '{ccm:export:file:' . $filename . '}';
+						}
 					}
 				}
 			}

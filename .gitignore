@@ -1,1 +1,4 @@
+/build
+/dist
+/node_modules
 /src/composer.lock

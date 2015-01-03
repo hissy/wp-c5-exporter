@@ -1,0 +1,15 @@
+{
+  "name": "wp-c5-exporter",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hissy/wp-c5-exporter.git"
+  },
+  "author": "Takuro Hishikawa <hishikawa@concrete5.co.jp>",
+  "license": "GPL",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-composer": "git+https://github.com/cyberdummy/gulp-composer.git",
+    "gulp-zip": "latest"
+  }
+}

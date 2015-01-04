@@ -83,6 +83,7 @@ class WP_C5_Exporter_Admin {
 			$args = array(
 				'parent_path'      => esc_html( $_POST['parent_path'] ),
 				'page_type'        => esc_html( $_POST['page_type'] ),
+				'page_template'    => esc_html( $_POST['page_template'] ),
 				'topic_handle'     => esc_html( $_POST['topic_handle'] ),
 				'topic_name'       => esc_html( $_POST['topic_name'] ),
 				'thumbnail_handle' => esc_html( $_POST['thumbnail_handle'] ),
@@ -151,6 +152,14 @@ class WP_C5_Exporter_Admin {
 		);
 		
 		add_settings_field(
+			'wp_c5_exporter_page_template',
+			esc_html__( 'Page Template handle for blog entries', WP_C5_EXPORTER_PLUGIN_DOMAIN ),
+			array( $this, 'settings_field_page_template' ),
+			self::PAGE_SLUG,
+			self::PAGE_SLUG . '_c5'
+		);
+		
+		add_settings_field(
 			'wp_c5_exporter_topic_handle',
 			esc_html__( 'Attribute handle for topic tree', WP_C5_EXPORTER_PLUGIN_DOMAIN ),
 			array( $this, 'settings_field_topic_handle' ),
@@ -214,6 +223,10 @@ class WP_C5_Exporter_Admin {
 	
 	public function settings_field_page_type() {
 		echo '<input name="page_type" type="text" id="page_type" value="' . WP_C5_Exporter::DEFAULT_PAGE_TYPE . '" />';
+	}
+	
+	public function settings_field_page_template() {
+		echo '<input name="page_template" type="text" id="page_template" value="' . WP_C5_Exporter::DEFAULT_PAGE_TEMPLATE . '" />';
 	}
 	
 	public function settings_field_topic_handle() {

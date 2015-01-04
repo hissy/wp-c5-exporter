@@ -8,6 +8,7 @@ class WP_C5_Exporter {
 	
 	const DEFAULT_BLOG_PATH         = '/blog';
 	const DEFAULT_PAGE_TYPE         = 'blog_entry';
+	const DEFAULT_PAGE_TEMPLATE     = 'right_sidebar';
 	const DEFAULT_TOPIC_ATTR_HANDLE = 'blog_entry_topics';
 	const DEFAULT_TOPIC_NAME        = 'Blog Entries';
 	const DEFAULT_THUM_HANDLE       = 'thumbnail';
@@ -20,6 +21,7 @@ class WP_C5_Exporter {
 			// concrete5
 			'parent_path'       => self::DEFAULT_BLOG_PATH,
 			'page_type'         => self::DEFAULT_PAGE_TYPE,
+			'page_template'     => self::DEFAULT_PAGE_TEMPLATE,
 			'topic_handle'      => self::DEFAULT_TOPIC_ATTR_HANDLE,
 			'topic_name'        => self::DEFAULT_TOPIC_NAME,
 			'thumbnail_handle'  => self::DEFAULT_THUM_HANDLE,
@@ -116,6 +118,7 @@ class WP_C5_Exporter {
 			
 			$name         = esc_attr( apply_filters( 'the_title', $post->post_title ) );
 			$pagetype     = esc_attr( $this->page_type );
+			$template     = esc_attr( $this->page_template );
 			$path         = esc_attr( rawurldecode( $this->parent_path . '/' . $post->post_name ) );
 			$description  = esc_attr( $post->post_excerpt );
 			$content      = apply_filters( 'the_content', $post->post_content );
@@ -126,6 +129,7 @@ class WP_C5_Exporter {
 			
 			$p->addAttribute( 'name',        $name );
 			$p->addAttribute( 'pagetype',    $pagetype );
+			$p->addAttribute( 'template',    $template );
 			$p->addAttribute( 'path',        $path );
 			$p->addAttribute( 'description', $description );
 			$p->addAttribute( 'public-date', $post_date );
@@ -139,9 +143,9 @@ class WP_C5_Exporter {
 			$attributes = $p->addChild( 'attributes' );
 			
 			// Export the categories to topic attributes
+			$ak = $attributes->addChild( 'attributekey' );
+			$ak->addAttribute( 'handle', $this->topic_handle );
 			if ( is_array( $categories ) ) {
-				$ak = $attributes->addChild( 'attributekey' );
-				$ak->addAttribute( 'handle', $this->topic_handle );
 				$topics = $ak->addChild( 'topics' );
 				foreach ( $categories as $category ) {
 					$topic_path = self::get_topic_path_from_term( $category, $this->category_slug );
@@ -150,12 +154,12 @@ class WP_C5_Exporter {
 			}
 			
 			// Save the post thumbnail to a image attribute
+			$ak = $attributes->addChild( 'attributekey' );
+			$ak->addAttribute( 'handle', $this->thumbnail_handle );
 			if ( $thumbnail_id ) {
 				$thumbnail_file = get_attached_file( $thumbnail_id );
 				if ( $thumbnail_file ) {
 					$file = $this->move_file_to_export_dir( $thumbnail_file );
-					$ak = $attributes->addChild( 'attributekey' );
-					$ak->addAttribute( 'handle', $this->thumbnail_handle );
 					$this->export_file_attribute( $ak, $file );
 				}
 			}
@@ -231,10 +235,8 @@ class WP_C5_Exporter {
 				// If the image file is a attachment, move the file to the export directory
 				$attachment_id = self::get_attachment_id_from_url( $src );
 				if ($attachment_id) {
-					$filename = $this->move_file_to_export_dir( $src );
-					if ($filename) {
-						$img->outertext = '<concrete-picture fID="' . $filename . '" alt="' . $alt . '" style="' . $style . '" />';
-					}
+					$src = $this->move_file_to_export_dir( $src );
+					$img->outertext = '<concrete-picture file="' . $src . '" alt="' . $alt . '" style="' . $style . '" />';
 				}
 			}
 			
@@ -246,10 +248,7 @@ class WP_C5_Exporter {
 				if ($attachment_id) {
 					$file = get_attached_file( $attachment_id );
 					if ( $file ) {
-						$filename = $this->move_file_to_export_dir( $file );
-						if ($filename) {
-							$anchor->href = '{ccm:export:file:' . $filename . '}';
-						}
+						$anchor->href = $this->move_file_to_export_dir( $file );
 					}
 				}
 			}

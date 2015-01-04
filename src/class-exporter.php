@@ -120,6 +120,7 @@ class WP_C5_Exporter {
 			$description  = esc_attr( $post->post_excerpt );
 			$content      = apply_filters( 'the_content', $post->post_content );
 			$content      = str_replace(']]>', ']]&gt;', $content);
+			$post_date    = $post->post_date;
 			$categories   = apply_filters( 'get_the_categories', get_the_terms( $post, $this->category_slug ) );
 			$thumbnail_id = get_post_thumbnail_id( $post_id );
 			
@@ -127,6 +128,7 @@ class WP_C5_Exporter {
 			$p->addAttribute( 'pagetype',    $pagetype );
 			$p->addAttribute( 'path',        $path );
 			$p->addAttribute( 'description', $description );
+			$p->addAttribute( 'public-date', $post_date );
 			
 			// Export the content to a content block
 			$area = $p->addChild( 'area' );

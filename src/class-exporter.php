@@ -248,7 +248,10 @@ class WP_C5_Exporter {
 				if ($attachment_id) {
 					$file = get_attached_file( $attachment_id );
 					if ( $file ) {
-						$anchor->href = $this->move_file_to_export_dir( $file );
+						$filename = $this->move_file_to_export_dir( $file );
+						if ($filename) {
+							$anchor->href = '{ccm:export:file:' . $filename . '}';
+						}
 					}
 				}
 			}

@@ -1,0 +1,182 @@
+# Copyright (C) 2015 WP C5 Exporter
+# This file is distributed under the same license as the WP C5 Exporter package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP C5 Exporter 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-c5-exporter\n"
+"POT-Creation-Date: 2015-01-27 04:19:31+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-01-27 13:29+0900\n"
+"Last-Translator: Takuro Hishikawa <hishikawa@concrete5.co.jp>\n"
+"Language-Team:  <hishikawa@concrete5.co.jp>\n"
+"Language: ja\n"
+"X-Generator: Poedit 1.7.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: class-admin.php:27 class-admin.php:28
+msgid "C5 Export"
+msgstr "﻿C5 のエクスポート"
+
+#: class-admin.php:44
+msgid "Export concrete5 Content Import Format file"
+msgstr "concrete5のコンテンツインポート形式のファイルをエクスポート"
+
+#: class-admin.php:46
+msgid ""
+"Please create database backup copies of both of your site (WordPress and "
+"concrete5)."
+msgstr ""
+"﻿あなたのサイト（WordPressとconcrete5の両方）のデータベースのバックアップコピー"
+"を作成してください。"
+
+#: class-admin.php:51
+msgid "Download Export File"
+msgstr "エクスポートファイルをダウンロード"
+
+#: class-admin.php:60
+msgid "Overview"
+msgstr "﻿概要"
+
+#: class-admin.php:61
+msgid ""
+"You can export a file of your blog&#8217;s content in order to import it into "
+"your concrete5 site. The export file will be an XML file format called "
+"concrete5 CIF (content import format)."
+msgstr ""
+"あなたのconcrete5サイトにインポートするためにあなたのブログのコンテンツをファ"
+"イルにエクスポートすることができます。エクスポートファイルはconcrete5 CIF（コ"
+"ンテンツインポート形式）と呼ばれるXMLファイル形式になります。"
+
+#: class-admin.php:62
+msgid ""
+"You can also download files of your blog in order to import these into your "
+"concrete5 site."
+msgstr ""
+"﻿Concrete5 サイトにこれらをインポートするためにあなたのブログのファイルをダウン"
+"ロードすることもできます。"
+
+#: class-admin.php:66
+msgid "How to Use"
+msgstr "使い方"
+
+#: class-admin.php:68
+msgid "First, you should export a XML file."
+msgstr "﻿まず、XML ファイルをエクスポートする必要があります。"
+
+#: class-admin.php:69
+msgid ""
+"Then, you can download files of inserted or attached images (files) from %s "
+"directory."
+msgstr ""
+"﻿その後、%s ディレクトリから挿入または添付されているイメージ (ファイル) をダウ"
+"ンロードできます。"
+
+#: class-admin.php:70
+msgid "Upload images to your concrete5 site from File Manager"
+msgstr "﻿ファイルマネージャーから、concrete5 サイトに画像をアップロードします。"
+
+#: class-admin.php:71
+msgid "Finally, you can import concrete5 CIF file to your concrete5 site."
+msgstr "﻿最後に、concrete5 CIF ファイルをconcrete5サイトにインポートできます。"
+
+#: class-admin.php:75
+msgid "For more information:"
+msgstr "﻿詳細情報:"
+
+#: class-admin.php:76
+msgid ""
+"<a href=\"http://codex.wordpress.org/Tools_Export_Screen\" target=\"_blank"
+"\">Documentation on Export</a>"
+msgstr ""
+"﻿<a href=\"http://codex.wordpress.org/Tools_Export_Screen\" target=\"_blank\">"
+"エクスポートに関するドキュメント</a>"
+
+#: class-admin.php:77
+msgid ""
+"<a href=\"https://wordpress.org/support/\" target=\"_blank\">Support Forums</"
+"a>"
+msgstr ""
+"﻿<a href=\"http://ja.forums.wordpress.org/\" target=\"_blank\">サポート フォー"
+"ラム</a>"
+
+#: class-admin.php:110
+msgid "From WordPress"
+msgstr "WordPressから"
+
+#: class-admin.php:117
+msgid "Export Post Type"
+msgstr "エクスポートする投稿タイプ"
+
+#: class-admin.php:125
+msgid "Export Category"
+msgstr "エクスポートするカテゴリー"
+
+#: class-admin.php:133
+msgid "To concrete5"
+msgstr "concrete5へ"
+
+#: class-admin.php:140
+msgid "Parent Page Path"
+msgstr "親ページのパス"
+
+#: class-admin.php:148
+msgid "Page Type handle for blog entries"
+msgstr "ブログ記事用のページタイプのハンドル"
+
+#: class-admin.php:156
+msgid "Page Template handle for blog entries"
+msgstr "ブログ記事用のページテンプレートのハンドル"
+
+#: class-admin.php:164
+msgid "Attribute handle for topic tree"
+msgstr "トピックツリー用の属性ハンドル"
+
+#: class-admin.php:172
+msgid "Name of topic tree for blog entries"
+msgstr "ブログ記事用のトピックツリーの名前"
+
+#: class-admin.php:180
+msgid "Attribute handle for thumbnail image"
+msgstr "サムネイル画像用の属性のハンドル"
+
+#: class-admin.php:188
+msgid "Area handle for blog contents"
+msgstr "ブログ本文用のエリアのハンドル"
+
+#: class-admin.php:197
+msgid "Options for your WordPress blog."
+msgstr "WordPressブログ用のオプション"
+
+#: class-admin.php:217
+msgid "Options for your concrete5 site."
+msgstr "concrete5サイト用のオプション"
+
+#: class-exporter.php:363
+msgid "Failed to make directory %s."
+msgstr "﻿ディレクトリ %s を作成できませんでした。"
+
+#: class-exporter.php:369
+msgid "Directory %s is not writable."
+msgstr "﻿ディレクトリ %s に書き込みができません。"
+
+#: wp-c5-exporter.php:20
+msgid "WP C5 Exporter requires PHP version 5.3.0 or later."
+msgstr "﻿WP C5 エクスポーターはPHPバージョン 5.3.0 以降が必要です。"
+
+#. Plugin Name of the plugin/theme
+msgid "WP C5 Exporter"
+msgstr "﻿WP C5 エクスポーター"
+
+#. Description of the plugin/theme
+msgid "Move your WordPress blog content to your concrete5 site."
+msgstr "﻿concrete5 サイトにあなたのWordPressのブログのコンテンツを移動します。"
+
+#. Author of the plugin/theme
+msgid "hissy"
+msgstr "hissy"
+
+#. Author URI of the plugin/theme
+msgid "http://notnil-creative.com"
+msgstr "http://notnil-creative.com"

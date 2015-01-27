@@ -1,0 +1,166 @@
+# Copyright (C) 2015 WP C5 Exporter
+# This file is distributed under the same license as the WP C5 Exporter package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP C5 Exporter 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-c5-exporter\n"
+"POT-Creation-Date: 2015-01-27 04:19:31+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: class-admin.php:27 class-admin.php:28
+msgid "C5 Export"
+msgstr ""
+
+#: class-admin.php:44
+msgid "Export concrete5 Content Import Format file"
+msgstr ""
+
+#: class-admin.php:46
+msgid ""
+"Please create database backup copies of both of your site (WordPress and "
+"concrete5)."
+msgstr ""
+
+#: class-admin.php:51
+msgid "Download Export File"
+msgstr ""
+
+#: class-admin.php:60
+msgid "Overview"
+msgstr ""
+
+#: class-admin.php:61
+msgid ""
+"You can export a file of your blog&#8217;s content in order to import it "
+"into your concrete5 site. The export file will be an XML file format called "
+"concrete5 CIF (content import format)."
+msgstr ""
+
+#: class-admin.php:62
+msgid ""
+"You can also download files of your blog in order to import these into your "
+"concrete5 site."
+msgstr ""
+
+#: class-admin.php:66
+msgid "How to Use"
+msgstr ""
+
+#: class-admin.php:68
+msgid "First, you should export a XML file."
+msgstr ""
+
+#: class-admin.php:69
+msgid ""
+"Then, you can download files of inserted or attached images (files) from %s "
+"directory."
+msgstr ""
+
+#: class-admin.php:70
+msgid "Upload images to your concrete5 site from File Manager"
+msgstr ""
+
+#: class-admin.php:71
+msgid "Finally, you can import concrete5 CIF file to your concrete5 site."
+msgstr ""
+
+#: class-admin.php:75
+msgid "For more information:"
+msgstr ""
+
+#: class-admin.php:76
+msgid ""
+"<a href=\"http://codex.wordpress.org/Tools_Export_Screen\" target=\"_blank"
+"\">Documentation on Export</a>"
+msgstr ""
+
+#: class-admin.php:77
+msgid ""
+"<a href=\"https://wordpress.org/support/\" target=\"_blank\">Support Forums</"
+"a>"
+msgstr ""
+
+#: class-admin.php:110
+msgid "From WordPress"
+msgstr ""
+
+#: class-admin.php:117
+msgid "Export Post Type"
+msgstr ""
+
+#: class-admin.php:125
+msgid "Export Category"
+msgstr ""
+
+#: class-admin.php:133
+msgid "To concrete5"
+msgstr ""
+
+#: class-admin.php:140
+msgid "Parent Page Path"
+msgstr ""
+
+#: class-admin.php:148
+msgid "Page Type handle for blog entries"
+msgstr ""
+
+#: class-admin.php:156
+msgid "Page Template handle for blog entries"
+msgstr ""
+
+#: class-admin.php:164
+msgid "Attribute handle for topic tree"
+msgstr ""
+
+#: class-admin.php:172
+msgid "Name of topic tree for blog entries"
+msgstr ""
+
+#: class-admin.php:180
+msgid "Attribute handle for thumbnail image"
+msgstr ""
+
+#: class-admin.php:188
+msgid "Area handle for blog contents"
+msgstr ""
+
+#: class-admin.php:197
+msgid "Options for your WordPress blog."
+msgstr ""
+
+#: class-admin.php:217
+msgid "Options for your concrete5 site."
+msgstr ""
+
+#: class-exporter.php:363
+msgid "Failed to make directory %s."
+msgstr ""
+
+#: class-exporter.php:369
+msgid "Directory %s is not writable."
+msgstr ""
+
+#: wp-c5-exporter.php:20
+msgid "WP C5 Exporter requires PHP version 5.3.0 or later."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP C5 Exporter"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Move your WordPress blog content to your concrete5 site."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "hissy"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://notnil-creative.com"
+msgstr ""

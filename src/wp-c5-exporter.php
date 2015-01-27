@@ -11,8 +11,8 @@ Author URI: http://notnil-creative.com
 if ( ! defined( 'WPINC' ) ) exit;
 
 define( 'WP_C5_EXPORTER_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
-define( 'WP_C5_EXPORTER_PLUGIN_DIR_NAME', dirname(__FILE__) );
-define( 'WP_C5_EXPORTER_PLUGIN_DOMAIN', 'wp_c5_exporter' );
+define( 'WP_C5_EXPORTER_PLUGIN_REL_PATH', plugin_basename(__FILE__) );
+define( 'WP_C5_EXPORTER_PLUGIN_DOMAIN', 'wp-c5-exporter' );
 
 if ( version_compare( PHP_VERSION, '5.3.0', '<' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -22,7 +22,7 @@ if ( version_compare( PHP_VERSION, '5.3.0', '<' ) ) {
 
 require dirname( __FILE__ ) . '/vendor/autoload.php';
 
-foreach( glob( WP_C5_EXPORTER_PLUGIN_DIR_NAME. '/class-*.php' ) as $class ) {
+foreach( glob( WP_C5_EXPORTER_PLUGIN_DIR_PATH. 'class-*.php' ) as $class ) {
 	require $class;
 }
 

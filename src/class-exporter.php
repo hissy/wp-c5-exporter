@@ -373,6 +373,28 @@ class WP_C5_Exporter {
 		return true;
 	}
 	
+	/**
+	 * Download the export directory as Zip archive
+	 */
+	public function download_export_dir() {
+		$zip = new ZipArchive();
+		$filename = $this->export_files_path . '.zip';
+		$opend = $zip->open( $filename , ZipArchive::CREATE );
+		if ( $opend === true ) {
+			foreach( list_files( $this->export_files_path ) as $file ) {
+				$zip->addFile( $file, basename( $file ) );
+			}
+			$zip->close();
+			header( 'Content-Description: File Transfer' );
+			header( 'Content-Disposition: attachment; filename=' . basename( $filename ) );
+			header( 'Content-Type: application/zip; charset=' . get_option( 'blog_charset' ), true );
+			header( 'Content-Length: ' . filesize( $filename ) );
+			print readfile($filename);
+			exit();
+		}
+		
+	}
+	
 	public function send_headers() {
 		$filename = 'wordpress_' . date( 'Y-m-d' ) . '.xml';
 		header( 'Content-Description: File Transfer' );

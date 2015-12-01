@@ -48,7 +48,13 @@ class WP_C5_Exporter_Admin {
 			<form action="<?php echo esc_url($action_url); ?>" method="post">
 				<?php wp_nonce_field( 'export_xml', 'export_xml' ); ?>
 				<?php do_settings_sections( self::PAGE_SLUG ); ?>
-				<?php submit_button( esc_html__( 'Download Export File' ) ); ?>
+				<?php submit_button( esc_html__( 'Download Export XML' ) ); ?>
+			</form>
+			<hr />
+			<form action="<?php echo esc_url($action_url); ?>" method="post">
+				<?php echo '<p>' . esc_html__('Download files uploaded to Media Library.') . '</p>'; ?>
+				<?php wp_nonce_field( 'download_file', 'download_file' ); ?>
+				<?php submit_button( esc_html__( 'Download Files' ), 'secondary' ); ?>
 			</form>
 		</div>
 		<?php
@@ -66,15 +72,18 @@ class WP_C5_Exporter_Admin {
 			'title'   => esc_html__( 'How to Use', WP_C5_EXPORTER_PLUGIN_DOMAIN ),
 			'content' => '<ol>'
 				. '<li>' . esc_html__( 'First, you should export a XML file.', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</li>'
-				. '<li>' . sprintf( esc_html__( 'Then, you can download files of inserted or attached images (files) from %s directory.', WP_C5_EXPORTER_PLUGIN_DOMAIN ), '<code>/path/to/your_site/wp-content/uploads/export</code>' ) . '</li>'
-				. '<li>' . esc_html__( 'Upload images to your concrete5 site from File Manager', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</li>'
-				. '<li>' . esc_html__( 'Finally, you can import concrete5 CIF file to your concrete5 site.', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</li>'
+				. '<li>' . sprintf( esc_html__( 'Then, you can download files.', WP_C5_EXPORTER_PLUGIN_DOMAIN ) ) . '</li>'
+				. '<li>' . esc_html__( 'Install "Migration Tool" add-on to your concrete5 site', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</li>'
+				. '<li>' . esc_html__( 'Add a import batch of Migration Tool and upload XML file to the batch.', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</li>'
+				. '<li>' . esc_html__( 'Upload files to the batch.', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</li>'
+				. '<li>' . esc_html__( 'Finally, you can import batch to your concrete5 site.', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</li>'
 				. '</ol>'
 		) );
 		get_current_screen()->set_help_sidebar(
 			'<p><strong>' . __('For more information:') . '</strong></p>' .
 			'<p>' . __('<a href="http://codex.wordpress.org/Tools_Export_Screen" target="_blank">Documentation on Export</a>') . '</p>' .
-			'<p>' . __('<a href="https://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
+			'<p>' . __('<a href="https://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>' .
+			'<p>' . __('<a href="https://github.com/concrete5/addon_migration_tool" target="_blank">concrete5 Migration Tool Add-on</a>') . '</p>'
 		);
 	}
 	
@@ -103,6 +112,11 @@ class WP_C5_Exporter_Admin {
 				echo $exporter->get_xml();
 				die();
 			}
+		}
+		
+		if( array_key_exists( 'download_file', $_POST ) && check_admin_referer( 'download_file', 'download_file' ) ) {
+			$exporter = new WP_C5_Exporter();
+			$exporter->download_export_dir();
 		}
 		
 		add_settings_section(

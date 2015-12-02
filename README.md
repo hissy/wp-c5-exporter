@@ -5,8 +5,8 @@ A WordPress plugin for moving your WordPress blog content to your concrete5 site
 ## Requires
 
 * PHP 5.3+
-* concrete5 5.7.3+
-* WordPress 4.0+ (not yet tested)
+* concrete5 5.7.5.4+
+* WordPress 4.3+ (recommended)
 
 ## Build
 

@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP C5 Exporter
 Description: Move your WordPress blog content to your concrete5 site.
-Version: 0.2
+Version: 0.3
 License: GPLv2 or later
 Author: hissy
 Author URI: http://notnil-creative.com

@@ -11,7 +11,7 @@ var knownOptions = {
 var options = minimist(process.argv.slice(2), knownOptions);
 
 gulp.task('build', function () {
-    return gulp.src('src/*', {base: "./src"})
+    return gulp.src('src/**', {base: "./src"})
         .pipe(gulp.dest('build'))
         .pipe(composer({ cwd: './build' }));
 });

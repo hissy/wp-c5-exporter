@@ -90,7 +90,6 @@ class WP_C5_Exporter_Admin {
 	public function admin_init() {
 		if( array_key_exists( 'export_xml', $_POST ) && check_admin_referer( 'export_xml', 'export_xml' ) ) {
 			$args = array(
-				'parent_path'      => esc_html( $_POST['parent_path'] ),
 				'page_type'        => esc_html( $_POST['page_type'] ),
 				'page_template'    => esc_html( $_POST['page_template'] ),
 				'topic_handle'     => esc_html( $_POST['topic_handle'] ),
@@ -147,14 +146,6 @@ class WP_C5_Exporter_Admin {
 			esc_html__( 'To concrete5', WP_C5_EXPORTER_PLUGIN_DOMAIN ),
 			array( $this, 'settings_section_options_c5' ),
 			self::PAGE_SLUG
-		);
-		
-		add_settings_field(
-			'wp_c5_exporter_parent_path',
-			esc_html__( 'Parent Page Path', WP_C5_EXPORTER_PLUGIN_DOMAIN ),
-			array( $this, 'settings_field_parent_path' ),
-			self::PAGE_SLUG,
-			self::PAGE_SLUG . '_c5'
 		);
 		
 		add_settings_field(
@@ -229,10 +220,6 @@ class WP_C5_Exporter_Admin {
 	
 	public function settings_section_options_c5() {
 		echo '<p>' . esc_html__('Options for your concrete5 site.') . '</p>';
-	}
-	
-	public function settings_field_parent_path() {
-		echo '<input name="parent_path" type="text" id="parent_path" value="' . WP_C5_Exporter::DEFAULT_BLOG_PATH . '" />';
 	}
 	
 	public function settings_field_page_type() {

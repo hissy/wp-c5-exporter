@@ -6,7 +6,6 @@ if ( ! defined( 'WPINC' ) ) exit;
 
 class WP_C5_Exporter {
 	
-	const DEFAULT_BLOG_PATH         = '/blog';
 	const DEFAULT_PAGE_TYPE         = 'blog_entry';
 	const DEFAULT_PAGE_TEMPLATE     = 'right_sidebar';
 	const DEFAULT_TOPIC_ATTR_HANDLE = 'blog_entry_topics';
@@ -19,7 +18,6 @@ class WP_C5_Exporter {
 	public function __construct( $args = null ) {
 		$defaults = array(
 			// concrete5
-			'parent_path'       => self::DEFAULT_BLOG_PATH,
 			'page_type'         => self::DEFAULT_PAGE_TYPE,
 			'page_template'     => self::DEFAULT_PAGE_TEMPLATE,
 			'topic_handle'      => self::DEFAULT_TOPIC_ATTR_HANDLE,
@@ -108,6 +106,8 @@ class WP_C5_Exporter {
 		$tree->addAttribute( 'name', $this->topic_name );
 		$this->export_topics_from_parent( $tree );
 		
+		$permalink_structure = get_option('permalink_structure');
+		
 		// Export pages
 		$c5_pages = $x->addChild( 'pages' );
 		$wp_posts = $this->get_posts();
@@ -119,13 +119,20 @@ class WP_C5_Exporter {
 			$name         = esc_attr( apply_filters( 'the_title', $post->post_title ) );
 			$pagetype     = esc_attr( $this->page_type );
 			$template     = esc_attr( $this->page_template );
-			$path         = esc_attr( rawurldecode( $this->parent_path . '/' . $post->post_name ) );
 			$description  = esc_attr( $post->post_excerpt );
 			$content      = apply_filters( 'the_content', $post->post_content );
 			$content      = str_replace(']]>', ']]&gt;', $content);
 			$post_date    = $post->post_date;
 			$categories   = apply_filters( 'get_the_categories', get_the_terms( $post, $this->category_slug ) );
 			$thumbnail_id = get_post_thumbnail_id( $post_id );
+			
+			if ($permalink_structure) {
+				$permalink = get_permalink( $post_id );
+				$url = parse_url( $permalink );
+				$path = $url['path'];
+			} else {
+				$path = $post->post_name;
+			}
 			
 			$p->addAttribute( 'name',        $name );
 			$p->addAttribute( 'pagetype',    $pagetype );

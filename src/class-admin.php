@@ -38,7 +38,7 @@ class WP_C5_Exporter_Admin {
 			echo '<div class="error"><p>' . $this->error->get_error_message() . '</p></div>';
 		}
 		
-		$action_url = admin_url( 'tools.php' ) . "?page=" . self::PAGE_SLUG;
+		$action_url = site_url( '?' . WP_C5_Exporter_Front::QUERY_VAR . '=' . WP_C5_Exporter_Front::ACTION_EXPORT );
 		?>
 		<div class="wrap">
 			<h2><?php esc_html_e( 'Export concrete5 Content Import Format file', WP_C5_EXPORTER_PLUGIN_DOMAIN ); ?></h2>
@@ -88,35 +88,6 @@ class WP_C5_Exporter_Admin {
 	}
 	
 	public function admin_init() {
-		if( array_key_exists( 'export_xml', $_POST ) && check_admin_referer( 'export_xml', 'export_xml' ) ) {
-			$args = array(
-				'page_type'        => esc_html( $_POST['page_type'] ),
-				'page_template'    => esc_html( $_POST['page_template'] ),
-				'topic_handle'     => esc_html( $_POST['topic_handle'] ),
-				'topic_name'       => esc_html( $_POST['topic_name'] ),
-				'thumbnail_handle' => esc_html( $_POST['thumbnail_handle'] ),
-				'area_handle'      => esc_html( $_POST['area_handle'] ),
-				'post_type'        => esc_html( $_POST['post_type'] ),
-				'category_slug'    => esc_html( $_POST['category_slug'] )
-			);
-			
-			$exporter = new WP_C5_Exporter($args);
-			
-			// make export directory
-			$r = $exporter->make_export_dir();
-			if ( is_wp_error($r) ) {
-				$this->error = $r;
-			} else {
-				$exporter->send_headers();
-				echo $exporter->get_xml();
-				die();
-			}
-		}
-		
-		if( array_key_exists( 'download_file', $_POST ) && check_admin_referer( 'download_file', 'download_file' ) ) {
-			$exporter = new WP_C5_Exporter();
-			$exporter->download_export_dir();
-		}
 		
 		add_settings_section(
 			self::PAGE_SLUG . '_wp',

@@ -28,7 +28,11 @@ foreach( glob( WP_C5_EXPORTER_PLUGIN_DIR_PATH. 'class-*.php' ) as $class ) {
 
 function wp_c5_exporter_init() {
 	load_plugin_textdomain( WP_C5_EXPORTER_PLUGIN_DOMAIN, false, dirname( WP_C5_EXPORTER_PLUGIN_REL_PATH ) . '/languages' );
-	return WP_C5_Exporter_Admin::instance();
+	if ( is_admin() ) {
+		return WP_C5_Exporter_Admin::instance();
+	} else {
+		return WP_C5_Exporter_Front::instance();
+	}
 }
 
 add_action( 'plugins_loaded', 'wp_c5_exporter_init' );

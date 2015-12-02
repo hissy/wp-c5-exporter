@@ -3,21 +3,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP C5 Exporter 0.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-c5-exporter\n"
-"POT-Creation-Date: 2015-01-27 04:19:31+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-01-27 13:29+0900\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-c5-exporter\n"
+"POT-Creation-Date: 2015-12-02 14:21:04+00:00\n"
+"PO-Revision-Date: 2015-12-02 23:25+0900\n"
 "Last-Translator: Takuro Hishikawa <hishikawa@concrete5.co.jp>\n"
 "Language-Team:  <hishikawa@concrete5.co.jp>\n"
 "Language: ja\n"
-"X-Generator: Poedit 1.7.3\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: class-admin.php:27 class-admin.php:28
 msgid "C5 Export"
-msgstr "﻿C5 のエクスポート"
+msgstr "C5 エクスポート"
 
 #: class-admin.php:44
 msgid "Export concrete5 Content Import Format file"
@@ -32,14 +32,22 @@ msgstr ""
 "を作成してください。"
 
 #: class-admin.php:51
-msgid "Download Export File"
-msgstr "エクスポートファイルをダウンロード"
+msgid "Download Export XML"
+msgstr "エクスポートXMLをダウンロード"
 
-#: class-admin.php:60
+#: class-admin.php:55
+msgid "Download files uploaded to Media Library."
+msgstr "メディアライブラリにアップロードされたファイルをダウンロードします。"
+
+#: class-admin.php:57
+msgid "Download Files"
+msgstr "ファイルをダウンロード"
+
+#: class-admin.php:66
 msgid "Overview"
 msgstr "﻿概要"
 
-#: class-admin.php:61
+#: class-admin.php:67
 msgid ""
 "You can export a file of your blog&#8217;s content in order to import it into "
 "your concrete5 site. The export file will be an XML file format called "
@@ -49,7 +57,7 @@ msgstr ""
 "イルにエクスポートすることができます。エクスポートファイルはconcrete5 CIF（コ"
 "ンテンツインポート形式）と呼ばれるXMLファイル形式になります。"
 
-#: class-admin.php:62
+#: class-admin.php:68
 msgid ""
 "You can also download files of your blog in order to import these into your "
 "concrete5 site."
@@ -57,35 +65,42 @@ msgstr ""
 "﻿Concrete5 サイトにこれらをインポートするためにあなたのブログのファイルをダウン"
 "ロードすることもできます。"
 
-#: class-admin.php:66
+#: class-admin.php:72
 msgid "How to Use"
 msgstr "使い方"
 
-#: class-admin.php:68
+#: class-admin.php:74
 msgid "First, you should export a XML file."
 msgstr "﻿まず、XML ファイルをエクスポートする必要があります。"
 
-#: class-admin.php:69
-msgid ""
-"Then, you can download files of inserted or attached images (files) from %s "
-"directory."
-msgstr ""
-"﻿その後、%s ディレクトリから挿入または添付されているイメージ (ファイル) をダウ"
-"ンロードできます。"
-
-#: class-admin.php:70
-msgid "Upload images to your concrete5 site from File Manager"
-msgstr "﻿ファイルマネージャーから、concrete5 サイトに画像をアップロードします。"
-
-#: class-admin.php:71
-msgid "Finally, you can import concrete5 CIF file to your concrete5 site."
-msgstr "﻿最後に、concrete5 CIF ファイルをconcrete5サイトにインポートできます。"
-
 #: class-admin.php:75
+msgid "Then, you can download files."
+msgstr "次に、ファイルをダウンロードします。"
+
+#: class-admin.php:76
+msgid "Install \"Migration Tool\" add-on to your concrete5 site"
+msgstr ""
+"「マイグレーションツール」アドオンをconcrete5サイトにインストールします。"
+
+#: class-admin.php:77
+msgid "Add a import batch of Migration Tool and upload XML file to the batch."
+msgstr ""
+"マイグレーションツールのインポートバッチを追加し、XMLファイルをバッチにアップ"
+"ロードします。"
+
+#: class-admin.php:78
+msgid "Upload files to the batch."
+msgstr "ファイルをバッチにアップロードします。"
+
+#: class-admin.php:79
+msgid "Finally, you can import batch to your concrete5 site."
+msgstr "最後に、バッチをconcrete5サイトにインポートします。"
+
+#: class-admin.php:83
 msgid "For more information:"
 msgstr "﻿詳細情報:"
 
-#: class-admin.php:76
+#: class-admin.php:84
 msgid ""
 "<a href=\"http://codex.wordpress.org/Tools_Export_Screen\" target=\"_blank"
 "\">Documentation on Export</a>"
@@ -93,7 +108,7 @@ msgstr ""
 "﻿<a href=\"http://codex.wordpress.org/Tools_Export_Screen\" target=\"_blank\">"
 "エクスポートに関するドキュメント</a>"
 
-#: class-admin.php:77
+#: class-admin.php:85
 msgid ""
 "<a href=\"https://wordpress.org/support/\" target=\"_blank\">Support Forums</"
 "a>"
@@ -101,63 +116,67 @@ msgstr ""
 "﻿<a href=\"http://ja.forums.wordpress.org/\" target=\"_blank\">サポート フォー"
 "ラム</a>"
 
-#: class-admin.php:110
+#: class-admin.php:86
+msgid ""
+"<a href=\"https://github.com/concrete5/addon_migration_tool\" target=\"_blank"
+"\">concrete5 Migration Tool Add-on</a>"
+msgstr ""
+"<a href=\"https://github.com/concrete5/addon_migration_tool\" target=\"_blank"
+"\">concrete5 マイグレーションツールアドオン</a>"
+
+#: class-admin.php:123
 msgid "From WordPress"
 msgstr "WordPressから"
 
-#: class-admin.php:117
+#: class-admin.php:130
 msgid "Export Post Type"
 msgstr "エクスポートする投稿タイプ"
 
-#: class-admin.php:125
+#: class-admin.php:138
 msgid "Export Category"
 msgstr "エクスポートするカテゴリー"
 
-#: class-admin.php:133
+#: class-admin.php:146
 msgid "To concrete5"
 msgstr "concrete5へ"
 
-#: class-admin.php:140
-msgid "Parent Page Path"
-msgstr "親ページのパス"
-
-#: class-admin.php:148
+#: class-admin.php:153
 msgid "Page Type handle for blog entries"
 msgstr "ブログ記事用のページタイプのハンドル"
 
-#: class-admin.php:156
+#: class-admin.php:161
 msgid "Page Template handle for blog entries"
 msgstr "ブログ記事用のページテンプレートのハンドル"
 
-#: class-admin.php:164
+#: class-admin.php:169
 msgid "Attribute handle for topic tree"
 msgstr "トピックツリー用の属性ハンドル"
 
-#: class-admin.php:172
+#: class-admin.php:177
 msgid "Name of topic tree for blog entries"
 msgstr "ブログ記事用のトピックツリーの名前"
 
-#: class-admin.php:180
+#: class-admin.php:185
 msgid "Attribute handle for thumbnail image"
 msgstr "サムネイル画像用の属性のハンドル"
 
-#: class-admin.php:188
+#: class-admin.php:193
 msgid "Area handle for blog contents"
 msgstr "ブログ本文用のエリアのハンドル"
 
-#: class-admin.php:197
+#: class-admin.php:202
 msgid "Options for your WordPress blog."
 msgstr "WordPressブログ用のオプション"
 
-#: class-admin.php:217
+#: class-admin.php:222
 msgid "Options for your concrete5 site."
 msgstr "concrete5サイト用のオプション"
 
-#: class-exporter.php:363
+#: class-exporter.php:370
 msgid "Failed to make directory %s."
 msgstr "﻿ディレクトリ %s を作成できませんでした。"
 
-#: class-exporter.php:369
+#: class-exporter.php:376
 msgid "Directory %s is not writable."
 msgstr "﻿ディレクトリ %s に書き込みができません。"
 
@@ -180,3 +199,17 @@ msgstr "hissy"
 #. Author URI of the plugin/theme
 msgid "http://notnil-creative.com"
 msgstr "http://notnil-creative.com"
+
+#~ msgid ""
+#~ "Then, you can download files of inserted or attached images (files) from "
+#~ "%s directory."
+#~ msgstr ""
+#~ "﻿その後、%s ディレクトリから挿入または添付されているイメージ (ファイル) をダ"
+#~ "ウンロードできます。"
+
+#~ msgid "Upload images to your concrete5 site from File Manager"
+#~ msgstr ""
+#~ "﻿ファイルマネージャーから、concrete5 サイトに画像をアップロードします。"
+
+#~ msgid "Parent Page Path"
+#~ msgstr "親ページのパス"

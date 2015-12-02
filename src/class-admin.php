@@ -48,13 +48,13 @@ class WP_C5_Exporter_Admin {
 			<form action="<?php echo esc_url($action_url); ?>" method="post">
 				<?php wp_nonce_field( 'export_xml', 'export_xml' ); ?>
 				<?php do_settings_sections( self::PAGE_SLUG ); ?>
-				<?php submit_button( esc_html__( 'Download Export XML' ) ); ?>
+				<?php submit_button( esc_html__( 'Download Export XML', WP_C5_EXPORTER_PLUGIN_DOMAIN ) ); ?>
 			</form>
 			<hr />
 			<form action="<?php echo esc_url($action_url); ?>" method="post">
-				<?php echo '<p>' . esc_html__('Download files uploaded to Media Library.') . '</p>'; ?>
+				<?php echo '<p>' . esc_html__( 'Download files uploaded to Media Library.', WP_C5_EXPORTER_PLUGIN_DOMAIN ) . '</p>'; ?>
 				<?php wp_nonce_field( 'download_file', 'download_file' ); ?>
-				<?php submit_button( esc_html__( 'Download Files' ), 'secondary' ); ?>
+				<?php submit_button( esc_html__( 'Download Files', WP_C5_EXPORTER_PLUGIN_DOMAIN ), 'secondary' ); ?>
 			</form>
 		</div>
 		<?php
@@ -81,9 +81,9 @@ class WP_C5_Exporter_Admin {
 		) );
 		get_current_screen()->set_help_sidebar(
 			'<p><strong>' . __('For more information:') . '</strong></p>' .
-			'<p>' . __('<a href="http://codex.wordpress.org/Tools_Export_Screen" target="_blank">Documentation on Export</a>') . '</p>' .
-			'<p>' . __('<a href="https://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>' .
-			'<p>' . __('<a href="https://github.com/concrete5/addon_migration_tool" target="_blank">concrete5 Migration Tool Add-on</a>') . '</p>'
+			'<p>' . __('<a href="http://codex.wordpress.org/Tools_Export_Screen" target="_blank">Documentation on Export</a>', WP_C5_EXPORTER_PLUGIN_DOMAIN) . '</p>' .
+			'<p>' . __('<a href="https://wordpress.org/support/" target="_blank">Support Forums</a>', WP_C5_EXPORTER_PLUGIN_DOMAIN) . '</p>' .
+			'<p>' . __('<a href="https://github.com/concrete5/addon_migration_tool" target="_blank">concrete5 Migration Tool Add-on</a>', WP_C5_EXPORTER_PLUGIN_DOMAIN) . '</p>'
 		);
 	}
 	
@@ -170,7 +170,7 @@ class WP_C5_Exporter_Admin {
 	}
 	
 	public function settings_section_options_wp() {
-		echo '<p>' . esc_html__('Options for your WordPress blog.') . '</p>';
+		echo '<p>' . esc_html__('Options for your WordPress blog.', WP_C5_EXPORTER_PLUGIN_DOMAIN) . '</p>';
 	}
 	
 	public function settings_field_post_type() {
@@ -190,7 +190,7 @@ class WP_C5_Exporter_Admin {
 	}
 	
 	public function settings_section_options_c5() {
-		echo '<p>' . esc_html__('Options for your concrete5 site.') . '</p>';
+		echo '<p>' . esc_html__('Options for your concrete5 site.', WP_C5_EXPORTER_PLUGIN_DOMAIN) . '</p>';
 	}
 	
 	public function settings_field_page_type() {
